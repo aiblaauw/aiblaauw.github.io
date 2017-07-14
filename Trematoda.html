@@ -51,7 +51,7 @@ var svg = d3.select("body").append("svg")
 //////////////////
 
 // load the external data
-d3.csv("Trematoda_test.csv", function(error, data) {
+d3.csv("Trematoda.csv", function(error, data) {
 
 // *********** Convert flat data into a nice tree ***************
 // create a name: node map
@@ -105,7 +105,7 @@ function update(source) {
   // Normalize for fixed-depth.
   nodes.forEach(function(d) { d.y = d.depth * 180; });
 
-  // Update the nodes…
+  // Update the nodesâ€¦
   var node = svg.selectAll("g.node")
       .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
@@ -169,7 +169,7 @@ function update(source) {
   nodeExit.select("text")
       .style("fill-opacity", 1e-6);
 
-  // Update the links…
+  // Update the linksâ€¦
   var link = svg.selectAll("path.link")
       .data(links, function(d) { return d.target.id; });
 
